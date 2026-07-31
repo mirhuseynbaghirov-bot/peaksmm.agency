@@ -10,8 +10,10 @@ const firebaseConfig = {
 };
 
 // Firebase-i işə salırıq
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
-// Auth və Firestore obyektləri
-const auth = firebase.auth();
-const db = firebase.firestore();
+// Təhlükəsiz yaradılma: Əgər auth/firestore yüklənibsə aktiv et, yoxdursa null mənimsət
+const db = typeof firebase.firestore === "function" ? firebase.firestore() : null;
+const auth = typeof firebase.auth === "function" ? firebase.auth() : null;
