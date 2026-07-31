@@ -9,9 +9,9 @@ const firebaseConfig = {
   measurementId: "G-D6R5Y8Z31W"
 };
 
-// Initialize Firebase
+// Firebase-i işə salırıq
 firebase.initializeApp(firebaseConfig);
 
-//
+// Auth və Firestore obyektləri
 const auth = firebase.auth();
-const db = firebase.firestore():
+const db = firebase.firestore();
