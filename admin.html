@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peak SMM — Admin Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- GİRİŞ EKRANI -->
+<div class="login" id="loginScreen">
+  <form class="login__box" id="loginForm">
+    <p class="login__logo">Peak<span>.</span>SMM</p>
+    <h1>Admin Panel</h1>
+    <label>
+      E-poçt
+      <input type="email" id="emailInput" placeholder="admin@peaksmm.az" required autofocus>
+    </label>
+    <label>
+      Şifrə
+      <input type="password" id="passwordInput" placeholder="Şifrənizi daxil edin" required>
+    </label>
+    <button type="submit" class="btn">Daxil ol</button>
+    <p class="login__error" id="loginError"></p>
+  </form>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard hidden" id="dashboard">
+  <header class="dash__header">
+    <p class="dash__logo">Peak<span>.</span>SMM <em>Admin</em></p>
+    <button class="btn btn--ghost" id="logoutBtn">Çıxış</button>
+  </header>
+
+  <main class="dash__main">
+    <div class="dash__toolbar">
+      <h1>Qeydiyyatlar</h1>
+      <div class="dash__actions">
+        <span class="dash__count" id="countLabel">0 nəfər</span>
+        <button class="btn btn--ghost" id="refreshBtn">Yenilə</button>
+        <button class="btn" id="exportBtn">CSV yüklə</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Tarix</th>
+            <th>Ad</th>
+            <th>WhatsApp nömrəsi</th>
+            <th>Qeyd</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- JS ilə doldurulur -->
+        </tbody>
+      </table>
+      <p class="empty hidden" id="emptyState">Hələ heç bir qeydiyyat yoxdur.</p>
+    </div>
+  </main>
+</div>
+
+<!-- Firebase SDK (compat versiya) -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>
